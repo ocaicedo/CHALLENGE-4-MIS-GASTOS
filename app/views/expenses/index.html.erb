@@ -1,0 +1,29 @@
+<h1>Listado de gastos</h1>
+ 
+<table class="table table-bordered" >
+  <tr>
+    	<th>Concepto</th>
+    	<th>Valor</th>
+      <th>Categoría</th>
+      <th>Fecha</th>
+    	<th colspan="3"></th>
+  <%@expenses.each do |expense|%>
+	</tr>
+ 
+<tr>
+      <td><%= expense.concept %></td>
+      <td><%= expense.amount %></td>
+      <td><%= expense.category_id %></td>
+      <td><%= expense.fecha %></td>
+			<td><%= link_to 'Detalle', expense_path(expense) %></td>
+		<td><%= link_to 'Editar', edit_expense_path(expense) %></td>
+    <td><%= link_to 'Destroy', expense_path(expense), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+<% end %>
+</table>
+
+
+
+<%= link_to 'Crear Nuevo Gasto', new_expense_path %>
+
+  
